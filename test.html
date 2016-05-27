@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>asdf</title>
+</head>
+<body>
+
+<canvas id="testCanvas"></canvas>
+
+<script>
+    var canvas = document.getElementById('testCanvas');
+    var ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    canvas.style.backgroundColor = 'rgba(0,0,0, 0.75)';
+    var startX = canvas.width /2;
+    var startY = canvas.height /2;
+
+    ctx.beginPath();
+    ctx.arc(startX, startY, 15, 0, 2*Math.PI);
+    ctx.fillStyle = "green";
+    ctx.stroke();
+    ctx.fill();
+
+    var angle = 0;
+    for (var i = 0; i < 24; i++) {
+        var radius = 50;
+        
+        ctx.beginPath();
+        ctx.arc(startX + radius * Math.cos(angle), startY + radius * Math.sin(angle), 15, 0, 2*Math.PI);
+        ctx.fillStyle = "white";
+        ctx.stroke();
+        ctx.fill();
+        angle += (angle + 15) * (Math.PI / 180);
+    }
+</script>
+</body>
+</html>
